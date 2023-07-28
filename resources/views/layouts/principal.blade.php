@@ -22,7 +22,7 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <meta name="csrf-token" content="{{ Session::token() }}">
     <title>
-        Abogatos
+        Abogados MRZ
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -97,7 +97,7 @@ $usuario = \Illuminate\Support\Facades\Auth::user();
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html "
                 target="_blank">
                 <img src="{{ asset('assets/img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">Abogatos</span>
+                <span class="ms-1 font-weight-bold">Abogados MRZ</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
