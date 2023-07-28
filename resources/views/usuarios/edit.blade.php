@@ -21,6 +21,7 @@
                                     <select class="form-select" aria-label="Rol" name="rol" required>
                                         <option disabled>Abrir...</option>
                                         <option value="Administrador" {{ $user->rol == "Administrador" ? "selected" : "" }}>Administrador</option>
+                                        <option value="Socio" {{ $user->rol == "Socio" ? "selected" : "" }}>Socio</option>
                                         <option value="Cliente" {{ $user->rol == "Cliente" ? "selected" : "" }}>Cliente</option>
                                     </select>
                                 </div>

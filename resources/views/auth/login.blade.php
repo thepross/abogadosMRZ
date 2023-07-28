@@ -37,11 +37,14 @@
                 </div>
         
                 <div class=" text-center mt-4 mb-2">
-                    <button class="btn btn-primary btn-md w-50">
+                    <button class="btn btn-primary btn-md w-50 mb-4">
                         {{ __('Iniciar Sesión') }}
                     </button>
                     {{-- <x-primary-button class="btn btn-lg">
                     </x-primary-button> --}}
+                    <a class="btn btn-light btn-md w-50" href="{{ route('register') }}">
+                        Registrarse
+                    </a>
                 </div>
             </form>
 
