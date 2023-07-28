@@ -11,7 +11,7 @@
                     <h5>Gestión de Usuarios</h5>
                     <div class="d-flex align-items-center">
                         <span class="text-sm">Tabla con datos de los usuarios registrados.</span>
-                        <a class="btn btn-success ms-auto disabled" type="button" href="{{ route('usuarios.create') }}"><i
+                        <a class="btn btn-success ms-auto" type="button" href="{{ route('usuarios.create') }}"><i
                                 class="fa fa-plus"></i> Crear</a>
                     </div>
                 </div>
