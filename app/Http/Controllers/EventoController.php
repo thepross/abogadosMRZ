@@ -20,7 +20,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(11);
+        $cont = Contador::find(8);
         $cont->cant++;
         $cont->save();
         $eventos = DB::table('eventos')->where('disabled', 0)->orderBy('id', 'asc')->get();

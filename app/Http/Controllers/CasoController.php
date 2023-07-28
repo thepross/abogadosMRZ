@@ -21,7 +21,7 @@ class CasoController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(9);
+        $cont = Contador::find(6);
         $cont->cant++;
         $cont->save();
 

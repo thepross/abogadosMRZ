@@ -20,7 +20,7 @@ class FormulaController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(7);
+        $cont = Contador::find(4);
         $cont->cant++;
         $cont->save();
         $formulas = DB::table('formulas')->where('disabled', 0)->orderBy('id', 'asc')->get();

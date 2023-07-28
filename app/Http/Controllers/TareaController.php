@@ -20,7 +20,7 @@ class TareaController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(5);
+        $cont = Contador::find(2);
         $cont->cant++;
         $cont->save();
         $tareas = DB::table('tareas')->where('disabled', 0)->orderBy('id', 'asc')->get();

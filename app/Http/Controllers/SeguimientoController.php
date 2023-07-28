@@ -20,7 +20,7 @@ class SeguimientoController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(10);
+        $cont = Contador::find(7);
         $cont->cant++;
         $cont->save();
         $seguimientos = DB::table('seguimientos')->where('disabled', 0)->orderBy('id', 'asc')->get();

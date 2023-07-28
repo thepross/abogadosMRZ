@@ -20,7 +20,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(8);
+        $cont = Contador::find(5);
         $cont->cant++;
         $cont->save();
         $categorias = DB::table('categorias')->where('disabled', 0)->orderBy('id', 'asc')->get();

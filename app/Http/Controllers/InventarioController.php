@@ -20,7 +20,7 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(6);
+        $cont = Contador::find(3);
         $cont->cant++;
         $cont->save();
         $inventarios = DB::table('inventarios')->where('disabled', 0)->orderBy('id', 'asc')->get();

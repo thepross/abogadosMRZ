@@ -19,7 +19,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $cont = Contador::find(4);
+        $cont = Contador::find(1);
         $cont->cant++;
         $cont->save();
         $users = DB::table('users')->where('disabled', 0)->orderBy('id', 'asc')->get();
