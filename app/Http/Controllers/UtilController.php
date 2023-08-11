@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Caso;
+use App\Models\Categoria;
 use App\Models\Contador;
+use App\Models\Formula;
+use App\Models\Inventario;
 use App\Models\Seguimiento;
+use App\Models\Tarea;
 use App\Models\User;
+use PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,6 +107,88 @@ class UtilController extends Controller
     {
         $table = $request->input('table');
 
+        if ($table == "users") {
+            $datos = DB::table('users')->get();
+            // share data to view
+            view()->share('users', $datos);
+            $modelo = new User();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        } else if ($table == "casos") {
+            $datos = DB::table('casos')->get();
+            // share data to view
+            view()->share('casos', $datos);
+            $modelo = new Caso();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        } else if ($table == "seguimientos") {
+            $datos = DB::table('seguimientos')->get();
+            // share data to view
+            view()->share('seguimientos', $datos);
+            $modelo = new Seguimiento();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        } else if ($table == "categorias") {
+            $datos = DB::table('categorias')->get();
+            // share data to view
+            view()->share('categorias', $datos);
+            $modelo = new Categoria();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        } else if ($table == "inventarios") {
+            $datos = DB::table('inventarios')->get();
+            // share data to view
+            view()->share('inventarios', $datos);
+            $modelo = new Inventario();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        } else if ($table == "tareas") {
+            $datos = DB::table('tareas')->get();
+            // share data to view
+            view()->share('tareas', $datos);
+            $modelo = new Tarea();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        } else if ($table == "formulas") {
+            $datos = DB::table('formulas')->get();
+            // share data to view
+            view()->share('formulas', $datos);
+            $modelo = new Formula();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        } else if ($table == "formulas") {
+            $datos = DB::table('formulas')->get();
+            // share data to view
+            view()->share('formulas', $datos);
+            $modelo = new Formula();
+            $atributos = $modelo->getFillable();
+            $pdf = PDF::loadView('myPDF', compact('datos', 'atributos', 'table'));
+            
+            // download PDF file with download method
+            return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment' => 0));
+        }
+
         // if ($table == "ambientes") {
         //     $datos = DB::table('ambientes')->get();
         //     // share data to view
@@ -185,6 +272,26 @@ class UtilController extends Controller
         //     return $pdf->stream('report_file_'. time() .'.pdf', array('Attachment'=>0));
         // }
 
+    }
+	
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generatePDF()
+    {
+        $users = User::get();
+  
+        $data = [
+            'title' => 'Welcome to ItSolutionStuff.com',
+            'date' => date('m/d/Y'),
+            'users' => $users
+        ]; 
+            
+        $pdf = PDF::loadView('myPDF', $data);
+     
+        return $pdf->download('itsolutionstuff.pdf');
     }
 
 }

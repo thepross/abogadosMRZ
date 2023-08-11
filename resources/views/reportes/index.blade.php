@@ -42,7 +42,7 @@
                                         <option value="inventarios">inventarios</option>
                                         <option value="tareas">tareas</option>
                                         <option value="formulas">formulas</option>
-                                        <option value="usuarios">usuarios</option>
+                                        <option value="users">usuarios</option>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-success" >Generar Reporte</button>

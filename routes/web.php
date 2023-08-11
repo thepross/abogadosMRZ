@@ -81,3 +81,5 @@ Route::get('/stats', [UtilController::class, 'stats'])->name('stats');
 Route::get('/unauthorized', [UtilController::class, 'unauthorized'])->name('unauthorized');
 Route::get('/reportes', [UtilController::class, 'reportes'])->name('reportes');
 Route::post('/report', [UtilController::class, 'report'])->name('report');
+
+Route::get('generate-pdf', [UtilController::class, 'generatePDF']);
