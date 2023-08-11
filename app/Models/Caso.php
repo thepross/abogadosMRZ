@@ -10,5 +10,5 @@ class Caso extends Model
     use HasFactory;
     
     protected $table = "casos";
-    protected $fillable = ['detalle', 'fecha', 'autoridad', 'involucrados', 'observaciones', 'id_user', 'id_categoria'];
+    protected $fillable = ['detalle', 'fecha', 'autoridad', 'involucrados', 'observaciones', 'id_user', 'id_categoria', 'documento'];
 }

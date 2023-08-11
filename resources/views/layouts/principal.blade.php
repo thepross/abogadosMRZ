@@ -278,8 +278,19 @@ $usuario = \Illuminate\Support\Facades\Auth::user();
                     </li>
 
                     @else
+                    {{-- Aqui la seccion del cliente --}}
                     <li class="nav-item mt-3">
                         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Panel de Cliente</h6>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('eventos*') ? 'active' : '' }}"
+                            href="{{ route('casosc.index') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-app text-info text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Mis casos</span>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('eventos*') ? 'active' : '' }}"

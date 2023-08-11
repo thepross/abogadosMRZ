@@ -51,6 +51,15 @@ class CasoController extends Controller
         ]);
         $caso = new Caso($request->all());
         $caso->id_user = Auth::user()->id;
+        if ($request->file('documento') == null) {
+            $caso->documento = null;
+        } else {
+            $documento = $request->file('documento');
+            $caso->documento = $documento->getClientOriginalName();
+            $destinationPath = 'documentos';
+            $documento->move($destinationPath, $documento->getClientOriginalName());
+        }
+
         if ($caso->save()) {
             Session::put('success', 'Caso registrada correctamente.');
         } else {

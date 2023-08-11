@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('casos.store') }}" method="post">
+                    <form action="{{ route('casos.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -66,6 +66,14 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="documento" class="form-control-label">Documento</label>
+                                    <input id="documento" name="documento" class="form-control" type="file">
+                                </div>
+                            </div>
+
                         </div>
                         <button class="btn btn-primary ms-auto" type="submit">Enviar</button>
 

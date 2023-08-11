@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_categoria')->references('id')->on('categorias');
             $table->boolean('disabled')->default(0);
+            $table->string('documento')->nullable();
             $table->timestamps();
         });
     }
