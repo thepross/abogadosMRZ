@@ -56,8 +56,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="id_seguimiento" class="form-control-label">Seguimiento</label>
-                                    <select class="form-select" aria-label="IDseguimiento" name="id_seguimiento" required>
-                                        <option disabled selected>Abrir...</option>
+                                    <select class="form-select" aria-label="IDseguimiento" name="id_seguimiento">
+                                        <option value="" selected>Ninguno</option>
                                         @foreach ($seguimientos as $seguimiento)
                                             <option value="{{ $seguimiento->id }}">{{ $seguimiento->id }} | {{ $seguimiento->descripcion }}</option>
                                         @endforeach

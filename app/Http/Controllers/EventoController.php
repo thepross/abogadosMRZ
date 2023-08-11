@@ -42,11 +42,11 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'id_seguimiento' => 'required',
-        ],[
-            'id_seguimiento.required' => 'El seguimiento es requerido.'
-        ]);
+        // $validated = $request->validate([
+        //     'id_seguimiento' => 'required',
+        // ],[
+        //     'id_seguimiento.required' => 'El seguimiento es requerido.'
+        // ]);
         $evento = new Evento($request->all());
         $evento->id_user = Auth::user()->id;
         if ($evento->save()) {
@@ -87,7 +87,9 @@ class EventoController extends Controller
         $evento->responsable = $request->responsable;
         $evento->fecha = $request->fecha;
         $evento->hora = $request->hora;
-        $evento->id_seguimiento = $request->id_seguimiento;
+        if ($request->id_seguimiento != null) {
+            $evento->id_seguimiento = $request->id_seguimiento;
+        }
         $evento->timestamps = false;
         if ($evento->save()) {
             Session::put('success', 'Evento modificado correctamente.');

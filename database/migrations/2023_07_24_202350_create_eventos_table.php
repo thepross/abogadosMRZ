@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_seguimiento');
+            $table->unsignedBigInteger('id_seguimiento')->nullable();
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_seguimiento')->references('id')->on('seguimientos');
             $table->boolean('disabled')->default(0);

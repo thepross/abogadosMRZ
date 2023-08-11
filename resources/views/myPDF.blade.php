@@ -12,11 +12,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body id="page-top">
+<body style="font-size: 8px">
 
     <h2>{{ strtoupper($table) }} - Reporte</h2>
     <p></p>
-    <table class="table table-sm table-bordered">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>

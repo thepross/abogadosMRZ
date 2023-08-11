@@ -48,8 +48,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="id_seguimiento" class="form-control-label">Seguimiento</label>
-                                    <select class="form-select" aria-label="IDseguimiento" name="id_seguimiento" required>
-                                        <option disabled>Abrir...</option>
+                                    <select class="form-select" aria-label="IDseguimiento" name="id_seguimiento">
+                                        <option value="">Ninguno</option>
                                         @foreach ($seguimientos as $seguimiento)
                                             <option value="{{ $seguimiento->id }}" {{ $seguimiento->id == $evento->id_seguimiento ? 'selected' : '' }}>{{ $seguimiento->id }} | {{ $seguimiento->descripcion }}</option>
                                         @endforeach
