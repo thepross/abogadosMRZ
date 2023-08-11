@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreign('id_categoria')->references('id')->on('categorias');
             $table->boolean('disabled')->default(0);
             $table->string('documento')->nullable();
+            $table->integer('id_cliente')->nullable();
             $table->timestamps();
         });
     }

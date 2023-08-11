@@ -36,7 +36,8 @@ class CasoController extends Controller
     {
         $casos = DB::table('casos')->where('disabled', 0)->get();
         $categorias = DB::table('categorias')->where('disabled', 0)->get();
-        return view('casos.create', compact('casos', 'categorias'));
+        $clientes = DB::table('users')->where('disabled', 0)->where('rol', 'Cliente')->get();
+        return view('casos.create', compact('casos', 'categorias', 'clientes'));
     }
 
     /**
@@ -51,13 +52,16 @@ class CasoController extends Controller
         ]);
         $caso = new Caso($request->all());
         $caso->id_user = Auth::user()->id;
+        $caso->id_cliente = $request->id_cliente;
+
         if ($request->file('documento') == null) {
             $caso->documento = null;
         } else {
+            $time = \Carbon\Carbon::now()->format('His');
             $documento = $request->file('documento');
-            $caso->documento = $documento->getClientOriginalName();
+            $caso->documento = $time . "-" . $documento->getClientOriginalName();
             $destinationPath = 'documentos';
-            $documento->move($destinationPath, $documento->getClientOriginalName());
+            $documento->move($destinationPath, $caso->documento);
         }
 
         if ($caso->save()) {
@@ -84,7 +88,8 @@ class CasoController extends Controller
     {
         $caso = Caso::find($id);
         $categorias = DB::table('categorias')->where('disabled', 0)->get();
-        return view('casos.edit', compact('caso', 'categorias'));
+        $clientes = DB::table('users')->where('disabled', 0)->where('rol', 'Cliente')->get();
+        return view('casos.edit', compact('caso', 'categorias', 'clientes'));
     }
 
     /**
@@ -99,7 +104,19 @@ class CasoController extends Controller
         $caso->involucrados = $request->involucrados;
         $caso->observaciones = $request->observaciones;
         $caso->id_categoria = $request->id_categoria;
+        $caso->id_cliente = $request->id_cliente;
         $caso->timestamps = false;
+
+        if ($request->file('documento') == null) {
+            $caso->documento = null;
+        } else {
+            $time = \Carbon\Carbon::now()->format('His');
+            $documento = $request->file('documento');
+            $caso->documento = $time . "-" . $documento->getClientOriginalName();
+            $destinationPath = 'documentos';
+            $documento->move($destinationPath, $caso->documento);
+        }
+
         if ($caso->save()) {
             Session::put('success', 'Caso modificado correctamente.');
         } else {

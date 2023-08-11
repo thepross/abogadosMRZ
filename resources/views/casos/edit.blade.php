@@ -11,7 +11,7 @@
                     <span class="text-sm">Realiza la modificacion del caso correspondiente.</span>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('casos.update', [$caso->id]) }}" method="post">
+                    <form action="{{ route('casos.update', [$caso->id]) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -62,6 +62,34 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="id_cliente" class="form-control-label">Cliente</label>
+                                    <select class="form-select" aria-label="IDcliente" name="id_cliente" required>
+                                        <option disabled>Abrir...</option>
+                                        @foreach ($clientes as $cliente)
+                                            <option value="{{ $cliente->id }}"
+                                                {{ $caso->id_cliente == $cliente->id ? 'selected' : '' }}>
+                                            {{ $cliente->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="documento" class="form-control-label">Documento</label>
+                                    <input id="documento" name="documento" class="form-control" type="file" value="{{ $caso->documento }}">
+                                </div>
+                            </div>
+
                         </div>
                         <button class="btn btn-primary ms-auto" type="submit">Enviar</button>
 

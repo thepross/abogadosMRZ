@@ -283,7 +283,7 @@ $usuario = \Illuminate\Support\Facades\Auth::user();
                         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Panel de Cliente</h6>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('eventos*') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->is('casosc*') ? 'active' : '' }}"
                             href="{{ route('casosc.index') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -320,16 +320,6 @@ $usuario = \Illuminate\Support\Facades\Auth::user();
                                 <i class="ni ni-app text-info text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Lista de Categorias</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->is('casos*') ? 'active' : '' }}"
-                            href="{{ route('casos.index') }}">
-                            <div
-                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Lista de Casos</span>
                         </a>
                     </li>
                     <li class="nav-item">

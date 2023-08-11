@@ -37,6 +37,8 @@
                                             Observaciones</th>
                                         <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">
                                             ID Categoria</th>
+                                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">
+                                                Documento</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,7 +75,17 @@
                                                 <span
                                                     class="text-xs font-weight-bold mb-0">{{ $caso->id_categoria }}</span>
                                             </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <a class="text-xs font-weight-bold mb-0 badge badge-sm bg-gradient-primary" href="documentos/{{ $caso->documento }}" target="_blank">{{ $caso->documento }}</a>
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <a href="{{ route('casosc.edit', [$caso->id]) }}"
+                                                    class="btn btn-info btn-xs text-white" data-toggle="tooltip"
+                                                    data-original-title="Edit user">
+                                                    Editar
+                                                </a>
 
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
