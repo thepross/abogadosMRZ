@@ -89,6 +89,8 @@ class EventoController extends Controller
         $evento->hora = $request->hora;
         if ($request->id_seguimiento != null) {
             $evento->id_seguimiento = $request->id_seguimiento;
+        } else {
+            $evento->id_seguimiento = null;
         }
         $evento->timestamps = false;
         if ($evento->save()) {
